@@ -140,6 +140,16 @@ li {
     color: rgb(32, 163, 60);
 }
 
+@media(max-width:360px) {
+    .form {
+        width: 250px;
+        left: 15%;
+    }
+    #input {
+        width: 180px;
+    }
+}
+
 #btn {
     width: 60px;
     height: 30px;
