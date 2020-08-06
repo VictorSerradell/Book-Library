@@ -81,15 +81,17 @@ function addBooks(bookTitle, date, id, done, trash) {
     let position = "beforeend";
 
     let text = `
-    <li class="book">
-        <i class="fa ${DONE}" id="${id}" task="complete"></i>
-        <div>
-            <span class="title ${LINE}">${bookTitle}</span><br>
-            <i class="date">${date}</i>
+    <li >
+        <div class="book">
+            <i class="fa ${DONE}" id="${id}" task="complete"></i>
+            <div>
+                <span class="title ${LINE}">${bookTitle}</span><br>
+                <i class="date">${date}</i>
+            </div>
+            <i class="fa fa-minus-circle " id="${id}" task="delete"></i>
         </div>
-        <i class="fa fa-minus-circle " id="${id}" task="delete"></i>
+        <hr>
     </li>
-    <hr>
     `;
     books.insertAdjacentHTML(position, text);
 }
@@ -119,7 +121,7 @@ function completeBook(element) {
 }
 
 function deleteBook(element) {
-    element.parentNode.parentNode.removeChild(element.parentNode);
+    element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
 
     LIST[element.id].trash = true;
 }
